@@ -1,0 +1,128 @@
+import java.util.Scanner;
+
+public class MiniChatbot {
+    private final String nome = "MiniChatbot";
+    
+    priva
+
+    pr
+
+   
+private String responderSaudacoes(String entrada) {
+        if (entrada.contains("oi") || entrada.contains("olá")) {
+   
+return "Olá! Como posso ajudar?";
+        }
+        
+        }
+        retur
+
+        }
+        re
+
+        }
+       
+return null;
+    }
+
+    
+    }
+    private String responderNome(String entrada) {
+        
+        i
+
+      
+
+   
+if (entrada.contains("seu nome")) {
+            
+  
+return "Eu sou o " + nome + ", seu assistente virtual!";
+        }
+        
+        }
+   
+
+        }
+
+       
+return null;
+    }
+    private String responderComoEsta(String entrada) {
+        if (entrada.contains("como você está")) {
+            
+            retur
+
+       
+return "Estou funcionando perfeitamente, obrigado!";
+        }
+        
+        }
+        retur
+
+        }
+        
+
+        }
+  
+
+      
+return null;
+    }
+
+    
+    }
+
+    /
+
+    }
+
+    
+    priv
+
+    p
+
+ 
+private String respostaPadrao() {
+        return "Desculpe, não entendi sua pergunta. Pode reformular?";
+    }
+
+    private String analisarEntrada(String entrada) {
+        entrada = entrada.toLowerCase(); // Converte a entrada para minúsculas
+        String resposta = responderSaudacoes(entrada);
+        if (resposta == null) {
+            resposta = responderNome(entrada);
+        }
+        if (resposta == null) {
+            resposta = responderComoEsta(entrada);
+        }
+        if (resposta == null) {
+            resposta = respostaPadrao();
+        }
+        return resposta;
+    }
+
+    public void iniciar() {
+        System.out.println("Olá! Eu sou o " + nome + ". Como posso te ajudar hoje?");
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Usuário: ");
+            String entradaUsuario = scanner.nextLine().trim();
+
+            if (entradaUsuario.equalsIgnoreCase("sair")) {
+                System.out.println(nome + ": Tchau! Até a próxima.");
+                break;
+            }
+
+            String resposta = analisarEntrada(entradaUsuario);
+            System.out.println(nome + ": " + resposta);
+        }
+
+        scanner.close();
+    }
+    public static void main(String[] args) {
+        MiniChatbot chatbot = new MiniChatbot();
+        chatbot.iniciar();
+    }
+}
